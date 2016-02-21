@@ -109,6 +109,35 @@ class Node
         return leftTraversal + rightTraversal + Visit()
     }
     
+    func traversal_breadthFirst() ->String?
+    {
+        
+        var queue = [self]
+        var strTraversal = ""
+        
+        while queue.count > 0
+        {
+            // pop the first
+            let node = queue[0]
+            queue.removeFirst()
+
+            // visit
+            strTraversal += node.Visit()
+            // add the children to the queue
+            if node.left != nil
+            {
+                queue.append(node.left!)
+            }
+            if node.right != nil
+            {
+                queue.append(node.right!)
+            }
+
+            
+        }
+        return strTraversal
+    }
+    
     func add(node: Node)
     {
         if node.value == value
