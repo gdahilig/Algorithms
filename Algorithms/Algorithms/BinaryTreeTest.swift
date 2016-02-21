@@ -196,13 +196,7 @@ class BinaryTreeTest: XCTestCase {
     
     func testNode_PreOrderTraversal_4()
     {
-        let nodeRoot = Node(Val: 10)
-        nodeRoot.add(2)
-        nodeRoot.add(200)
-        nodeRoot.add(0)
-        nodeRoot.add(8)
-        nodeRoot.add(1)
-        nodeRoot.add(3)
+        let nodeRoot = self.createBinaryTree_1()
         let strTraversal = nodeRoot.traversal_preOrder()
         XCTAssert(strTraversal == ".10..2..0..1..8..3..200.")
     }
@@ -236,18 +230,25 @@ class BinaryTreeTest: XCTestCase {
     
     func testNode_PostOrderTraversal_3()
     {
-        let nodeRoot = Node(Val: 10)
-        nodeRoot.add(2)
-        nodeRoot.add(200)
-        nodeRoot.add(0)
-        nodeRoot.add(8)
-        nodeRoot.add(1)
-        nodeRoot.add(3)
+        let nodeRoot = self.createBinaryTree_1()
         let strTraversal = nodeRoot.traversal_postOrder()
         XCTAssert(strTraversal == ".1..0..3..8..2..200..10.")
     }
     
+    
+    // Test Breadth First Traversal.
     func testNode_BreadthFirstTraversal()
+    {
+        let nodeRoot = self.createBinaryTree_1()
+        
+        let strTraversal = nodeRoot.traversal_breadthFirst()
+        XCTAssert(strTraversal == ".10..2..200..0..8..1..3.")
+    }
+    
+    
+    /// Utility functions
+    
+    func createBinaryTree_1() -> Node
     {
         let nodeRoot = Node(Val: 10)
         nodeRoot.add(2)
@@ -257,8 +258,7 @@ class BinaryTreeTest: XCTestCase {
         nodeRoot.add(1)
         nodeRoot.add(3)
         
-        let strTraversal = nodeRoot.traversal_breadthFirst()
-        XCTAssert(strTraversal == ".10..2..200..0..8..1..3.")
+        return nodeRoot
     }
     
 }

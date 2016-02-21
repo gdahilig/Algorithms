@@ -109,6 +109,7 @@ class Node
         return leftTraversal + rightTraversal + Visit()
     }
     
+    // Bread First Traversal
     func traversal_breadthFirst() ->String?
     {
         
