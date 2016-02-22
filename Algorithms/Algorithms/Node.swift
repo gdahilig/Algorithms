@@ -133,8 +133,6 @@ class Node
             {
                 queue.append(node.right!)
             }
-
-            
         }
         return strTraversal
     }

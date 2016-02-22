@@ -75,4 +75,35 @@ class HeapNode
     {
         return false
     }
+    
+    /*
+    getNodeAtDepth
+    Gets all the nodes for a give depth level using self as the root.
+    In:
+        targetDepth : depth level.  0-based.
+        currDepth   : current depth level.
+    InOut:
+        rowNodes    : array of heapnodes for the desired level.
+    Returns:
+        none
+    */
+    func getNodesAtDepth( targetDepth: Int, currDepth : Int, inout rowNodes : [HeapNode])
+    {
+        if currDepth < targetDepth
+        { // keep going,not there yet.
+            if self.left != nil
+            {
+                self.left!.getNodesAtDepth(targetDepth, currDepth: currDepth+1, rowNodes: &rowNodes)
+            }
+            if self.right != nil
+            {
+                self.right!.getNodesAtDepth(targetDepth, currDepth: currDepth+1, rowNodes: &rowNodes)
+            }
+        }
+        else
+        { // we're here!
+            rowNodes.append(self)
+        }
+    }
+    
 }
