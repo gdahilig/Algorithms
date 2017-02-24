@@ -183,8 +183,8 @@ class BinaryHeapTest: XCTestCase {
     
     /* build a tree
            10
-          /  \
-        52    nil
+          /
+        52
     
     */
     func buildTree_1() -> HeapNode

@@ -122,7 +122,6 @@ class BinaryTreeTest: XCTestCase {
         XCTAssert(strVisit == ".10.")
         
         let nodeLess = Node(Val:2)
-        let nodeMore = Node(Val:200)
 
         nodeRoot.add(nodeLess)
         strVisit = nodeRoot.traversal_inorder()
